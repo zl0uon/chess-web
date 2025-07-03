@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess</title>
+</head>
+<body>
+    <canvas id = "canvas" width="300" height="200"></canvas>
+
+    <script type="importmap">
+        {
+            "import": {
+                "three": "https://unpkg.com/three@0.141.0/build/three.module.js",
+                "GLTFLoader": "https://unpkg.com/three@0.141.0/examples/jsm/loaders/GLTFLoader.js"
+            }
+        }
+    </script>
+    <script type="module">
+        import {GLTFLoader} from 'GLTFLoader';
+        import * as THREE from 'three';
+
+        let scene = new THREE.Scene()
+        let renderer = new THREE.WebGLRenderer({
+            canvas : document.querySelector('#canvas')
+        });
+        let loader = new GLTFLoader();
+        loader.load('chess.gltf');
+        renderer.render(scene)
+    </script>
+</body>
+</html>
